@@ -2,35 +2,23 @@
 # -*- coding utf-8 -*-
 import matplotlib.pyplot as plt
 
-def generation(column,cell,array):
-    if array[2][0] == None:
-        array[2][0] = float(cell)
-    else:
-        array[2].append(float(cell))
+def generation(column,cell,krotka):
+    krotka[2] = float(cell)
 
 def effort(column,cell,array):
-    if array[0][0] == None:
-        array[0][0] = float(cell)
-    else:
-        array[0].append(float(cell))
+    krotka[0] = float(cell)
 
 def run(column,cell,array):
-    if array[1][0] == None:
-        array[1][0] = [float(cell)]
-    else:
-        if len(array[1]) < len(array[0]):
-            array[1].append([float(cell)])
-        else:
-            array[1][len(array[1])-1].append(float(cell))
+    krotka[1].append(float(cell))
 
-def checkCell(column,cell,array):
+def checkCell(column,cell,krotka):
     # print(column)
     switcher = {
         "generation": generation,
         "effort": effort,
     }
     function = switcher.get(column,run)
-    function(column,cell,array)
+    function(column,cell,krotka)
 
 def warunki(krotka):
     if krotka[0] > 500000:
@@ -43,7 +31,7 @@ def readFile(fileName):
     readFile = open(fileName,"r")
     lines = readFile.readlines();
     readFile.close();
-    plotArray = [0] * 3;
+    plotArray = [[]]*3
     for i in range(len(plotArray)):
         plotArray[i] = [None]
     # print(plotArray)
@@ -54,15 +42,17 @@ def readFile(fileName):
             columns = columns.split(",")
         else:
             cells = lines[i].split(',')
+            krotka = [0,[],0]
             for j in range(len(cells)):
                 # print(cells)
-                checkCell(columns[j],cells[j],plotArray);
-            plotArray[1][-1] = sum(plotArray[1][-1])/len(plotArray[1][-1])
-            krotka = [plotArray[0][-1],plotArray[1][-1],plotArray[2][-1]]
-            if warunki(krotka) == False:
-                print("Warunek nie spelniony")
-                for d in range(3):
-                    del plotArray[d][-1]
+                checkCell(columns[j],cells[j],krotka);
+            krotka[1][-1] = sum(krotka[1][-1])/len(krotka[1][-1])
+            if warunki(krotka) == True:
+                plotArray[0].append(krotka[0])
+                plotArray[1].append(krotka[1])
+                plotArray[2].append(krotka[2])
+            else:
+                print("Warunek nie spełniony")
     # print(len(plotArray[0]))
     # print(len(plotArray[1]))
     # print(len(plotArray[2]))
