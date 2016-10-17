@@ -56,12 +56,13 @@ def readAllFiles(fileList):
     return plotList
 
 
-def drawLinePlot(plotList):
+def drawPlots(plotList):
     axis1 = plt.subplot(121)
     axis1.set_xlabel("Rozegranych gier (x1000)")
     axis1.set_ylabel("Odsetek wygranych gier [%]")
     axis2 = axis1.twiny()
     axis2.set_xlabel("Pokolenie")
+    axis3 = plt.subplot(122)
     maxGeneration = []
     for newPlot in plotList:
         xData = [float(x/1000) for x in newPlot[0]]
@@ -74,6 +75,10 @@ def drawLinePlot(plotList):
     axis2.set_xticks(maxGeneration[::part])
     axis1.set_xlim(0,500)
     axis2.set_xlim(0,200)
+
+    # axis3.boxplot(newPlot[1][-1],labels=newPlot[3][3],notch=True,bootstrap=10000)
+    axis3.boxplot([[x*100 for x in newPlot[1][-1]] for newPlot in plotList],labels=[newPlot[3][3] for newPlot in plotList],notch=True,bootstrap=10000,showmeans=True,color="b")
+    axis3.set_ylim(60,100)
     # plt.savefig('wykresy.png')
     plt.show()
     plt.close()
@@ -81,7 +86,7 @@ def drawLinePlot(plotList):
 def main():
     fileList = [["rsel.csv","b","o","1-Evol-RS"],["cel-rs.csv","g","v","1-Coev-RS"],["2cel-rs.csv","r","D","2-Coev-RS"],["cel.csv","k","s","1-Coev"],["2cel.csv",'m',"d","2-Coev"]]
     newPlotList = readAllFiles(fileList)
-    drawLinePlot(newPlotList)
+    drawPlots(newPlotList)
 
 
 if __name__ == '__main__':
