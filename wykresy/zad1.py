@@ -73,14 +73,23 @@ def addColorsToPlots(colors,plotList):
 
 def drawLinePlot(plotList):
     axis1 = plt.subplot(121)
+    axis1.set_xlabel("Rozegranych gier")
+    axis1.set_ylabel("Odsetek wygranych gier")
     for newPlot in plotList:
         axis1.plot(newPlot[0],newPlot[1],newPlot[3])
-    plt.savefig('wykresy.png')
+    axis2 = axis1.twiny()
+    axis2.set_xlabel("Pokolenie")
+    newTicks = range(201)
+    newTicks = newTicks[::20]
+    axis2.set_xticks(newTicks)
+    # plt.savefig('wykresy.png')
+    plt.show()
     plt.close()
 
 def main():
     fileList = ["cel.csv","cel-rs.csv","2cel.csv","2cel-rs.csv","rsel.csv"]
     plotColors = ["k","g","m","r","b"]
+
 
     newPlotList = readAllFiles(fileList)
     newPlotList = addColorsToPlots(plotColors,newPlotList)
