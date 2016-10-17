@@ -5,10 +5,10 @@ import matplotlib.pyplot as plt
 def generation(column,cell,krotka):
     krotka[2] = float(cell)
 
-def effort(column,cell,array):
+def effort(column,cell,krotka):
     krotka[0] = float(cell)
 
-def run(column,cell,array):
+def run(column,cell,krotka):
     krotka[1].append(float(cell))
 
 def checkCell(column,cell,krotka):
@@ -46,7 +46,7 @@ def readFile(fileName):
             for j in range(len(cells)):
                 # print(cells)
                 checkCell(columns[j],cells[j],krotka);
-            krotka[1][-1] = sum(krotka[1][-1])/len(krotka[1][-1])
+            krotka[1] = sum(krotka[1])/len(krotka[1])
             if warunki(krotka) == True:
                 plotArray[0].append(krotka[0])
                 plotArray[1].append(krotka[1])
@@ -65,16 +65,18 @@ def readAllFiles(fileList):
         plotList.append(readFile(name))
     return plotList
 
-def drawLinePlot(plotList):
-    for newPlot in plotList:
-        plt.plot(newPlot[0],newPlot[1],newPlot[3])
-    plt.savefig('test.png')
-    plt.close()
 
 def addColorsToPlots(colors,plotList):
     for i in range(len(plotList)):
         plotList[i].append(colors[i])
     return plotList
+
+def drawLinePlot(plotList):
+    axis1 = plt.subplot(121)
+    for newPlot in plotList:
+        axis1.plot(newPlot[0],newPlot[1],newPlot[3])
+    plt.savefig('wykresy.png')
+    plt.close()
 
 def main():
     fileList = ["cel.csv","cel-rs.csv","2cel.csv","2cel-rs.csv","rsel.csv"]
