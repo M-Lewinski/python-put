@@ -71,10 +71,10 @@ def drawPlots(plotList):
     axis3.yaxis.tick_right()
     axis3.set_ylim(60,100)
     axis3.set_xticklabels(axis3.get_xticklabels(),rotation=20)
-    plt.savefig('wykresy.png')
     axis1.grid(True)
     axis3.grid(True)
     plt.show()
+    plt.savefig('wykresy.png')
     plt.close()
 
 def main():
