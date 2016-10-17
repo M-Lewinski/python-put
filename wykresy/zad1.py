@@ -38,7 +38,7 @@ def readFile(fileName):
             for j in range(len(cells)):
                 # print(cells)
                 checkCell(columns[j],cells[j],krotka);
-            krotka[1] = sum(krotka[1])/len(krotka[1])
+            # krotka[1] = sum(krotka[1])/len(krotka[1])
             # if warunki(krotka) == True:
             plotArray[0].append(krotka[0])
             plotArray[1].append(krotka[1])
@@ -65,8 +65,10 @@ def drawLinePlot(plotList):
     maxGeneration = []
     for newPlot in plotList:
         xData = [float(x/1000) for x in newPlot[0]]
-        axis1.plot(xData,newPlot[1],color = newPlot[3][1],marker=newPlot[3][2],markevery=20)
+        yData = [(sum(x)/len(x))*100 for x in newPlot[1]]
+        axis1.plot(xData,yData,color = newPlot[3][1],marker=newPlot[3][2],markevery=25,label=newPlot[3][3])
         maxGeneration = max(maxGeneration,newPlot[2])
+    axis1.legend(loc=4)
     part = int(len(maxGeneration)/5)
     maxGeneration.append(maxGeneration[-1]+1)
     axis2.set_xticks(maxGeneration[::part])
@@ -77,7 +79,7 @@ def drawLinePlot(plotList):
     plt.close()
 
 def main():
-    fileList = [["cel.csv","k","s"],["cel-rs.csv","g","v"],["2cel.csv",'m',"d"],["2cel-rs.csv","r","D"],["rsel.csv","b","o"]]
+    fileList = [["rsel.csv","b","o","1-Evol-RS"],["cel-rs.csv","g","v","1-Coev-RS"],["2cel-rs.csv","r","D","2-Coev-RS"],["cel.csv","k","s","1-Coev"],["2cel.csv",'m',"d","2-Coev"]]
     newPlotList = readAllFiles(fileList)
     drawLinePlot(newPlotList)
 
