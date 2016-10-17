@@ -26,27 +26,19 @@ def readFile(fileName):
     plotArray = [[]]*3
     for i in range(len(plotArray)):
         plotArray[i] = []
-    print(plotArray)
     for i in range(len(lines)):
         if i == 0:
-            # print("test")
             columns = lines[i]
             columns = columns.split(",")
         else:
             cells = lines[i].split(',')
             krotka = [0,[],0]
             for j in range(len(cells)):
-                # print(cells)
                 checkCell(columns[j],cells[j],krotka);
-            # krotka[1] = sum(krotka[1])/len(krotka[1])
-            # if warunki(krotka) == True:
             plotArray[0].append(krotka[0])
             plotArray[1].append(krotka[1])
             plotArray[2].append(krotka[2])
-            # else:
-                # print("Warunek nie spełniony")
     return plotArray
-
 
 def readAllFiles(fileList):
     plotList = []
@@ -54,7 +46,6 @@ def readAllFiles(fileList):
         plotList.append(readFile(fileList[i][0]))
         plotList[-1].append(fileList[i])
     return plotList
-
 
 def drawPlots(plotList):
     axis1 = plt.subplot(121)
@@ -75,17 +66,23 @@ def drawPlots(plotList):
     axis2.set_xticks(maxGeneration[::part])
     axis1.set_xlim(0,500)
     axis2.set_xlim(0,200)
-
-    # axis3.boxplot(newPlot[1][-1],labels=newPlot[3][3],notch=True,bootstrap=10000)
-    axis3.boxplot([[x*100 for x in newPlot[1][-1]] for newPlot in plotList],labels=[newPlot[3][3] for newPlot in plotList],notch=True,bootstrap=10000,showmeans=True,color="b")
+    kropki = dict(marker='o', markerfacecolor='blue')
+    axis3.boxplot([[x*100 for x in newPlot[1][-1]] for newPlot in plotList],labels=[newPlot[3][3] for newPlot in plotList],notch=True,bootstrap=10000,showmeans=True,meanprops=kropki)
+    axis3.yaxis.tick_right()
     axis3.set_ylim(60,100)
-    # plt.savefig('wykresy.png')
+    axis3.set_xticklabels(axis3.get_xticklabels(),rotation=20)
+    plt.savefig('wykresy.png')
+    axis1.grid(True)
+    axis3.grid(True)
     plt.show()
     plt.close()
 
 def main():
     fileList = [["rsel.csv","b","o","1-Evol-RS"],["cel-rs.csv","g","v","1-Coev-RS"],["2cel-rs.csv","r","D","2-Coev-RS"],["cel.csv","k","s","1-Coev"],["2cel.csv",'m',"d","2-Coev"]]
-    newPlotList = readAllFiles(fileList)
+    try:
+        newPlotList = readAllFiles(fileList)
+    except FileNotFoundError:
+        print("ERROR::COULDN'T FIND FILES::ERROR")
     drawPlots(newPlotList)
 
 
