@@ -35,9 +35,8 @@ def readFile(fileName):
             krotka = [0,[],0]
             for j in range(len(cells)):
                 checkCell(columns[j],cells[j],krotka);
-            plotArray[0].append(krotka[0])
-            plotArray[1].append(krotka[1])
-            plotArray[2].append(krotka[2])
+            for i in range(len(krotka)):
+                plotArray[i].append(krotka[i])
     return plotArray
 
 def readAllFiles(fileList):
@@ -67,7 +66,7 @@ def drawPlots(plotList):
     axis1.set_xlim(0,500)
     axis2.set_xlim(0,200)
     kropki = dict(marker='o', markerfacecolor='blue')
-    axis3.boxplot([[x*100 for x in newPlot[1][-1]] for newPlot in plotList],labels=[newPlot[3][3] for newPlot in plotList],notch=True,bootstrap=10000,showmeans=True,meanprops=kropki)
+    axis3.boxplot([[x*100 for x in newPlot[1][-1]] for newPlot in plotList],labels=[newPlot[3][3] for newPlot in plotList],notch=True,showmeans=True,meanprops=kropki)
     axis3.yaxis.tick_right()
     axis3.set_ylim(60,100)
     axis3.set_xticklabels(axis3.get_xticklabels(),rotation=20)
