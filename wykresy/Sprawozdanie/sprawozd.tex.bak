@@ -34,6 +34,6 @@ Pierwsze zadanie laboratoryjne polegało na napisaniu programu w Pythonie, któr
 
 \section{Pierwsze programowanie z Pythonem}
 
-Pierwszy projekt w Pythonie był bardzo interesującym doświadczeniem. Początkowo miałem problemy z rozróżnieniem wersji Pythona (pip/pip3 oraz Python/Python3), lecz po udanej instalacji nie napotkałem już żadnych większych problemów. Wykorzystywanie tabulatorów zamiast nawiasów było dosyć dziwne ale ostatecznie muszę przyznać, że poprawiło to czytelność kodu. Przy tworzeniu programu korzystałem głównie z dokumentacji biblioteki \textit{matplotlib} oraz sekcji podpowiedzi w treści zadania. 
+Pierwszy projekt w Pythonie był bardzo interesującym doświadczeniem. Początkowo miałem problemy z rozróżnieniem wersji pythona (pip/pip3 oraz python/python3), lecz po udanej instalacji nie napotkałem już żadnych większych problemów. Wykorzystywanie tabulatorów zamiast nawiasów było dosyć dziwne ale ostatecznie muszę przyznać, że poprawiło to czytelność kodu. Przy tworzeniu programu korzystałem głównie z dokumentacji biblioteki \textit{matplotlib} oraz sekcji podpowiedzi w treści zadania. 
 
 \end{document}
