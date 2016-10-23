@@ -1,0 +1,39 @@
+
+\documentclass{article}
+\usepackage{polski} %moze wymagac dokonfigurowania latexa, ale jest lepszy niż standardowy babel'owy [polish]
+\usepackage[utf8]{inputenc}
+\usepackage[OT4]{fontenc}
+\usepackage{graphicx,color} %include pdf's (and png's for raster graphics... avoid raster graphics!)
+\usepackage{url}
+\usepackage[pdftex,hyperfootnotes=false,pdfborder={0 0 0}]{hyperref} %za wszystkimi pakietami; pdfborder nie wszedzie tak samo zaimplementowane bo specyfikacja nieprecyzyjna; pod miktex'em po prostu nie widac wtedy ramek
+
+
+\input{_ustawienia.tex}
+
+% \title{Sprawozdanie z laboratorium:\\Metaheurystyki i Obliczenia Inspirowane Biologicznie}
+% \author{}
+% \date{}
+
+
+\begin{document}
+
+\input{_tytulowa}
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=1.0\textwidth]{wykresy.pdf}
+\end{center}
+\caption{Wykres liniowy przedstawia przebiegi w funkcji ,,czasu", natomiast wykres pudełkowy przedstawia końcowe wyniki algorytmów}
+\label{fig:schemat}
+\end{figure}
+
+
+\section{Wstęp}
+
+Pierwsze zadanie laboratoryjne polegało na napisaniu programu w Pythonie, który za pomocą wykresów przedstawi wyniki działania pięciu różnych algorytmów ewolucyjnych. Dane należało wczytać z plików csv, a następnie za pomocą biblioteki \textit{matplotlib} utworzyć wykres liniowy i pudełkowy. W kodzie programu zawarte zostały komentarze, które opisują działanie wykorzystanych funkcji.
+
+\section{Pierwsze programowanie z Pythonem}
+
+Pierwszy projekt w Pythonie był bardzo interesującym doświadczeniem. Początkowo miałem problemy z rozróżnieniem wersji pythona (pip/pip3 oraz python/python3), lecz po udanej instalacji nie napotkałem już żadnych większych problemów. Wykorzystywanie tabulatorów zamiast nawiasów było dosyć dziwne ale ostatecznie muszę przyznać, że poprawiło to czytelność kodu. Przy tworzeniu programu korzystałem głównie z dokumentacji biblioteki \textit{matplotlib} oraz sekcji podpowiedzi w treści zadania. 
+
+\end{document}
