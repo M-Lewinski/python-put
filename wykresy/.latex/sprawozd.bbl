@@ -1,0 +1,25 @@
+\begin{thebibliography}{1}
+
+\bibitem{Goldberg-2002}
+D.~E. Goldberg.
+\newblock {\em The Design of Innovation: Lessons from and for Competent Genetic
+  Algorithms}.
+\newblock Kluwer Academic Publishers, 2002.
+
+\bibitem{MiOIB}
+Maciej Komosiński.
+\newblock Materiały do wykładu ,,{M}etaheurystyki i obliczenia inspirwane
+  biologicznie''.
+\newblock Lecture notes, 2014.
+
+\bibitem{GnuplotDemos}
+Developers of~gnuplot.
+\newblock gnuplot demo plots, 2011.
+\newblock \url{http://www.gnuplot.info/screenshots/index.html#demos}.
+
+\bibitem{WikiDash}
+Wikipedia.
+\newblock Dash -- wikipedia{,} the free encyclopedia, 2014.
+\newblock \url{http://en.wikipedia.org/wiki/Dash}.
+
+\end{thebibliography}

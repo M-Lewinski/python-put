@@ -1,6 +1,7 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.10.23)  24 OCT 2016 15:39
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.10.23)  23 OCT 2016 19:57
 entering extended mode
- restricted \write18 enabled.
+ \write18 enabled.
+ file:line:error style messages enabled.
  %&-line parsing enabled.
 **sprawozd.tex
 (./sprawozd.tex
@@ -544,7 +545,8 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 )
 \Hy@SectionHShift=\skip43
 )
-(./_ustawienia.tex) (./sprawozd.aux)
+(./_ustawienia.tex)
+(/home/lewin/projects/python-put/wykresy/.latex/sprawozd.aux)
 \openout1 = `sprawozd.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 18.
@@ -607,7 +609,8 @@ LaTeX Info: Redefining \ref on input line 18.
 LaTeX Info: Redefining \pageref on input line 18.
 LaTeX Info: Redefining \nameref on input line 18.
 
-(./sprawozd.out) (./sprawozd.out)
+(/home/lewin/projects/python-put/wykresy/.latex/sprawozd.out)
+(/home/lewin/projects/python-put/wykresy/.latex/sprawozd.out)
 \@outlinefile=\write3
 \openout3 = `sprawozd.out'.
 
@@ -635,7 +638,12 @@ LaTeX Font Info:    External font `plex10' loaded for size
 (Font)              <7> on input line 25.
 LaTeX Font Info:    External font `plex10' loaded for size
 (Font)              <5> on input line 25.
- [1
+
+Overfull \hbox (8.96835pt too wide) in paragraph at lines 24--28
+[]\OT4/cmr/m/n/10 Autorzy: [] 
+ []
+
+[1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}])
 <pics/wykresy.pdf, id=21, 578.16pt x 433.62pt>
@@ -646,7 +654,7 @@ Package pdftex.def Info: pics/wykresy.pdf used on input line 24.
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 39.
  [2 <./pics/wykresy.pdf>]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 39.
- (./sprawozd.aux)
+ (/home/lewin/projects/python-put/wykresy/.latex/sprawozd.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 39.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 39.
 Package rerunfilecheck Info: File `sprawozd.out' has not changed.
@@ -654,13 +662,13 @@ Package rerunfilecheck Info: File `sprawozd.out' has not changed.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 39.
  ) 
 Here is how much of TeX's memory you used:
- 5790 strings out of 493029
- 82574 string characters out of 6136233
- 164108 words of memory out of 5000000
+ 5791 strings out of 493029
+ 83083 string characters out of 6136233
+ 164107 words of memory out of 5000000
  9251 multiletter control sequences out of 15000+600000
  10345 words of font info for 30 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 29i,6n,28p,527b,324s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 29i,6n,28p,549b,324s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/pl/plit.enc}{/usr/share/texliv
 e/texmf-dist/fonts/enc/dvips/pl/plrm.enc}</usr/share/texlive/texmf-dist/fonts/t
 ype1/public/pl/plbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/pl/
@@ -668,7 +676,8 @@ plbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/pl/plr10.pfb></usr
 /share/texlive/texmf-dist/fonts/type1/public/pl/plr12.pfb></usr/share/texlive/t
 exmf-dist/fonts/type1/public/pl/plr8.pfb></usr/share/texlive/texmf-dist/fonts/t
 ype1/public/pl/plti10.pfb>
-Output written on sprawozd.pdf (2 pages, 73744 bytes).
+Output written on /home/lewin/projects/python-put/wykresy/.latex/sprawozd.pdf (
+2 pages, 73817 bytes).
 PDF statistics:
  109 PDF objects out of 1000 (max. 8388607)
  48 compressed objects within 1 object stream
