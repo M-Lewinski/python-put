@@ -90,7 +90,7 @@ def gradient_rgb_gbr_full(v):
 
 def gradient_rgb_wb_custom(v):
     #TODO
-    return getPointInCube(rgbCustom,v)
+    return getPointInCube(rgbWbCustom,v)
 
 def gradient_hsv_bw(v):
     #TODO
