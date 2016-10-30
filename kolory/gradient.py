@@ -2,12 +2,30 @@
 # -*- coding: utf-8 -*-
 from __future__ import division             # Division in Python 2.7
 import matplotlib
-matplotlib.use('Agg')                       # So that we can render files without GUI
+# matplotlib.use('Agg')                       # So that we can render files without GUI
 import matplotlib.pyplot as plt
 from matplotlib import rc
 import numpy as np
+import math as m
 
 from matplotlib import colors
+
+samples = 1024
+rgbgbr = []
+rgbWbCustom = [[1,1,1],[1,0,1],[0,0,1],[0,1,1],[0,1,0],[1,1,0],[1,0,0],[0,0,0]]
+
+def getPointInCube(listPoints,point):
+    element = m.trunc(point*(len(listPoints)-1))
+    if element == len(listPoints)-1:
+        element = len(listPoints)-2
+    skala = point*(len(listPoints)-1)-element
+    finalPoint = []
+    for i in range(len(listPoints[element])):
+        if listPoints[element+1][i]-listPoints[element][i] != 0:
+            finalPoint.append(listPoints[element][i]+(1/(listPoints[element+1][i]-listPoints[element][i]))*skala)
+        else:
+            finalPoint.append(listPoints[element][i])
+    return finalPoint
 
 def plot_color_gradients(gradients, names):
     # For pretty latex fonts (commented out, because it does not work on some machines)
@@ -25,8 +43,9 @@ def plot_color_gradients(gradients, names):
 
     for ax, gradient, name in zip(axes, gradients, names):
         # Create image with two lines and draw gradient on it
-        img = np.zeros((2, 1024, 3))
-        for i, v in enumerate(np.linspace(0, 1, 1024)):
+        img = np.zeros((2, samples, 3))
+        # print(img)
+        for i, v in enumerate(np.linspace(0, 1, samples)):
             img[:, i] = gradient(v)
 
         im = ax.imshow(img, aspect='auto')
@@ -37,7 +56,7 @@ def plot_color_gradients(gradients, names):
         x_text = pos[0] - 0.25
         y_text = pos[1] + pos[3]/2.
         fig.text(x_text, y_text, name, va='center', ha='left', fontsize=10)
-    # fig.show()
+    plt.show()
     fig.savefig('my-gradients.pdf')
     plt.close()
 
@@ -51,24 +70,28 @@ def gradient_rgb_bw(v):
 
 
 def gradient_rgb_gbr(v):
-    #TODO
-    #
     if v < 0.5:
-        return (0,1-v*2,v*2-1)
+        return (0,1-v*2,v*2)
     else:
         v-=0.5
-        return (v*2-1, 0,1-v*2)
-
+        return (v*2, 0,1-v*2)
 
 def gradient_rgb_gbr_full(v):
-    #TODO
-    return (0, 0, 0)
-
+    if v < 0.25:
+        return (0,1,4*v)
+    elif v < 0.5:
+        v-=0.25
+        return (0,1-4*v,1)
+    elif v < 0.75:
+        v-=0.5
+        return (4*v,0,1)
+    else:
+        v-=0.75
+        return (1,0,1-4*v)
 
 def gradient_rgb_wb_custom(v):
     #TODO
-    return (0, 0, 0)
-
+    return getPointInCube(rgbCustom,v)
 
 def gradient_hsv_bw(v):
     #TODO
