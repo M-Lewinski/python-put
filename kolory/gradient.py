@@ -11,7 +11,6 @@ import math as m
 from matplotlib import colors
 
 samples = 1024
-rgbgbr = []
 rgbWbCustom = [[1,1,1],[1,0,1],[0,0,1],[0,1,1],[0,1,0],[1,1,0],[1,0,0],[0,0,0]]
 
 def getPointInCube(listPoints,point):
