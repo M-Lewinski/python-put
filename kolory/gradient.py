@@ -56,18 +56,14 @@ def getPointInCone(listPoints,point):
 
 
 def plot_color_gradients(gradients, names):
-    # For pretty latex fonts (commented out, because it does not work on some machines)
-    #rc('text', usetex=True)
-    #rc('font', family='serif', serif=['Times'], size=10)
     rc('legend', fontsize=10)
 
-    column_width_pt = 400         # Show in latex using \the\linewidth
+    column_width_pt = 400
     pt_per_inch = 72
     size = column_width_pt / pt_per_inch
 
     fig, axes = plt.subplots(nrows=len(gradients), sharex=True, figsize=(size, 0.75 * size))
     fig.subplots_adjust(top=1.00, bottom=0.05, left=0.25, right=0.95)
-
 
     for ax, gradient, name in zip(axes, gradients, names):
         # Create image with two lines and draw gradient on it
@@ -83,9 +79,9 @@ def plot_color_gradients(gradients, names):
         x_text = pos[0] - 0.25
         y_text = pos[1] + pos[3]/2.
         fig.text(x_text, y_text, name, va='center', ha='left', fontsize=10)
-    plt.show()
+    # plt.show()
     fig.savefig('my-gradients.pdf')
-    plt.close()
+    # plt.close()
 
 def hsv2rgb(h, s, v):
     vs = v*s
@@ -134,10 +130,43 @@ def gradient_hsv_custom(v):
     hsv = getPointInCone(hsvCustom, v)
     return hsv2rgb(hsv[0], hsv[1], hsv[2])
 
+mapHeight = 0
+mapWidth = 0
+distanceBetweenPoints = 0
 
-def createMap(fileName):
-    
+def loadMapPoints(fileName):
+    with open(fileName) as file:
+        mapa = file.read().splitlines()
+    mapa = [i.split(' ') for i in mapa]
+    global mapHeight,mapWidth,distanceBetweenPoints
+    mapHeight= int(mapa[0][0])
+    mapWidth = int(mapa[0][1])
+    distanceBetweenPoints = int(mapa[0][2])
+    del mapa[0]
+    for i in range(len(mapa)):
+        del mapa[i][-1]
+        mapa[i] = [float(point) for point in mapa[i]]
+    return mapa
 
+def convertMapPoints(colorList,mapa):
+    mapaHSV = mapa
+    minimum = np.min(mapaHSV)
+    maximum = np.max(mapaHSV) - minimum
+    for i in range(mapHeight):
+        # print([(point-minimum)/maximum for point in mapaHSV[i]])
+        for j in range(mapWidth):
+            newPoint = getPointInCone(colorList,((mapa[i][j] -minimum)/maximum))
+            newPoint = hsv2rgb(newPoint[0],newPoint[1],newPoint[2])
+            mapa[i][j] = newPoint
+    # print(mapaHSV[0])
+    return mapaHSV
+
+def drawMap(mapa):
+    fig = plt.figure()
+    plt.imshow(mapa)
+    plt.show()
+    fig.savefig("mapa.pdf")
+    plt.close()
 
 if __name__ == '__main__':
     def toname(g):
@@ -147,3 +176,6 @@ if __name__ == '__main__':
                  gradient_hsv_bw, gradient_hsv_gbr, gradient_hsv_unknown, gradient_hsv_custom)
 
     plot_color_gradients(gradients, [toname(g) for g in gradients])
+    mapa = loadMapPoints("big.dem")
+    mapa = convertMapPoints([[120,1,1],[0,1,1]],mapa)
+    drawMap(mapa)
