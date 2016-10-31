@@ -11,6 +11,7 @@ import math as m
 from matplotlib import colors
 
 samples = 1024
+
 rgbBw = [[0,0,0],[1,1,1]]
 rgbGbr = [[0,1,0],[0,0,1],[1,0,0]]
 rgbGbrFull = [[0,1,0],[0,1,1],[0,0,1],[1,0,1],[1,0,0]]
@@ -25,10 +26,13 @@ def getPointInCube(listPoints,point):
     element, skala = getElement(listPoints, point)
     finalPoint = []
     for i in range(len(listPoints[element])):
-        if listPoints[element+1][i]-listPoints[element][i] != 0:
-            finalPoint.append(listPoints[element][i]+(1/(listPoints[element+1][i]-listPoints[element][i]))*skala)
+        lewyZakres = listPoints[element][i]
+        prawyZakres = listPoints[element + 1][i]
+        div = prawyZakres - lewyZakres
+        if div != 0:
+            finalPoint.append(lewyZakres + (1 / (div)) * skala)
         else:
-            finalPoint.append(listPoints[element][i])
+            finalPoint.append(lewyZakres)
     return finalPoint
 
 
@@ -47,13 +51,7 @@ def getPointInCone(listPoints,point):
         lewyZakres = listPoints[element][i]
         prawyZakres = listPoints[element + 1][i]
         div = prawyZakres - lewyZakres
-        if div != 0:
-            if i == 0:
-                finalPoint.append(lewyZakres + div * skala)
-            else:
-                finalPoint.append(lewyZakres + (1 / (div)) * skala)
-        else:
-            finalPoint.append(lewyZakres)
+        finalPoint.append(lewyZakres + div * skala)
     return finalPoint
 
 
@@ -77,7 +75,7 @@ def plot_color_gradients(gradients, names):
         for i, v in enumerate(np.linspace(0, 1, samples)):
             img[:, i] = gradient(v)
 
-        im = ax.imshow(img, aspect='auto')
+        im = ax.imshow(img, aspect='auto',interpolation='none')
         im.set_extent([0, 1, 0, 1])
         ax.yaxis.set_visible(False)
 
@@ -135,6 +133,10 @@ def gradient_hsv_unknown(v):
 def gradient_hsv_custom(v):
     hsv = getPointInCone(hsvCustom, v)
     return hsv2rgb(hsv[0], hsv[1], hsv[2])
+
+
+def createMap(fileName):
+    
 
 
 if __name__ == '__main__':
