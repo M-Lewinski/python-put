@@ -155,7 +155,7 @@ def createHSVmatrix(mapHeight,mapWidth):
 def convertMapPoints(mapa,mapHeight,mapWidth,distance):
     minimum = np.min(mapa)
     maximum = np.max(mapa) - minimum
-    sun = np.array([-7*(minimum+maximum), 7*(minimum+maximum), -7*(minimum+maximum)])
+    sun = np.array([-distance, 50, -distance])
     mapaHSV = createHSVmatrix(mapHeight,mapWidth)
     matrixOfAngles = np.zeros([mapHeight,mapWidth])
     for i in range(mapHeight):
@@ -181,22 +181,49 @@ def convertMapPoints(mapa,mapHeight,mapWidth,distance):
             normal = np.cross(secondPoint - mainPoint,thirdPoint - mainPoint)
             angleSun_Surface = m.degrees(np.arccos(np.clip(np.dot(normal,vectorToSun)/(np.linalg.norm(normal)*np.linalg.norm(vectorToSun)),-1,1)))
             matrixOfAngles[i][j] = angleSun_Surface
+            # mapaHSV[i][j][0] = (1-((mapa[i][j]-minimum)/maximum))*120
+            # if angleSun_Surface < 90.0:
+            #     mapaHSV[i][j][1] = np.sin(angleSun_Surface)*2
+            # else:
+            #     mapaHSV[i][j][2] = np.sin(angleSun_Surface)*3
+            # mapaHSV[i][j] = hsv2rgb(mapaHSV[i][j][0],mapaHSV[i][j][1],mapaHSV[i][j][2])
+    angles = np.sort(np.reshape(matrixOfAngles,-1))
+    minAngle = np.min(angles)
+    maxAngle = np.max(angles)
+    for i in range(mapHeight):
+        for j in range(mapWidth):
             mapaHSV[i][j][0] = (1-((mapa[i][j]-minimum)/maximum))*120
-            if angleSun_Surface < 90.0:
-                mapaHSV[i][j][1] = 1-(1-np.sin(angleSun_Surface))*1
+            normalized = ((matrixOfAngles[i][j]-minAngle)/(maxAngle-minAngle))*2 - 1
+            # normalized = ((matrixOfAngles[i][j]-minAngle)/(maxAngle-minAngle))
+            position = np.where(angles == matrixOfAngles[i][j])[0]
+            position = position[0]/len(angles)
+            # print(position)
+            div = position - 0.5
+            if div < 0:
+                mapaHSV[i][j][1] = 1 -np.sin(matrixOfAngles[i][j])*abs(div)
             else:
-                mapaHSV[i][j][2] = 1 - (1 - np.sin(angleSun_Surface))*5
+                mapaHSV[i][j][2] = 1 - np.sin(matrixOfAngles[i][j])*abs(div)
+
+
+            # if matrixOfAngles[i][j]<=angles[m.trunc(len(angles)*0.05)]:
+            #     mapaHSV[i][j][1] = np.sin(matrixOfAngles[i][j])
+            # elif matrixOfAngles[i][j]<=angles[m.trunc(len(angles)*0.2)]:
+            #     mapaHSV[i][j][1] = np.sin(matrixOfAngles[i][j])*0.7
+            # elif matrixOfAngles[i][j] >= angles[m.trunc(len(angles)*0.95)]:
+            #     mapaHSV[i][j][2] = np.sin(matrixOfAngles[i][j])
+            # elif matrixOfAngles[i][j] >= angles[m.trunc(len(angles)*0.8)]:
+            #     mapaHSV[i][j][2] = np.sin(matrixOfAngles[i][j])*0.25
+
+            #
+            # if normalized < 0:
+            #     mapaHSV[i][j][1] = ((1+normalized) + mapaHSV[i][j][1])/2
+            # else:
+            #     mapaHSV[i][j][2] = ((1-normalized) + mapaHSV[i][j][2])/2
+
+            # mapaHSV[i][j][2] = (normalized +mapaHSV[i][j][2])/2
+
             mapaHSV[i][j] = hsv2rgb(mapaHSV[i][j][0],mapaHSV[i][j][1],mapaHSV[i][j][2])
-    # for i in range(mapHeight):
-    #     for j in range(mapWidth):
-    #         mapaHSV[i][j][0] = (1-((mapa[i][j]-minimum)/maximum))*120
-    #
-    #         if angle < 0:
-    #             mapaHSV[i][j][1] = 1+angle
-    #         else:
-    #             mapaHSV[i][j][2] = 1-angle
-    #         print(angle)
-    #         mapaHSV[i][j] = hsv2rgb(mapaHSV[i][j][0],mapaHSV[i][j][1],mapaHSV[i][j][2])
+
     return mapaHSV
 
 def drawMap(mapa):
@@ -207,13 +234,13 @@ def drawMap(mapa):
 
 if __name__ == '__main__':
     # Zadanie z gradientami
-    def toname(g):
-        return g.__name__.replace('gradient_', '').replace('_', '-').upper()
-
-    gradients = (gradient_rgb_bw, gradient_rgb_gbr, gradient_rgb_gbr_full, gradient_rgb_wb_custom,
-                 gradient_hsv_bw, gradient_hsv_gbr, gradient_hsv_unknown, gradient_hsv_custom)
-
-    plot_color_gradients(gradients, [toname(g) for g in gradients])
+    # def toname(g):
+    #     return g.__name__.replace('gradient_', '').replace('_', '-').upper()
+    #
+    # gradients = (gradient_rgb_bw, gradient_rgb_gbr, gradient_rgb_gbr_full, gradient_rgb_wb_custom,
+    #              gradient_hsv_bw, gradient_hsv_gbr, gradient_hsv_unknown, gradient_hsv_custom)
+    #
+    # plot_color_gradients(gradients, [toname(g) for g in gradients])
 
     # Zadanie z mapą
     mapa,mapHeight,mapWidth,distance = loadMapPoints("big.dem")
