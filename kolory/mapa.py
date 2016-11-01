@@ -40,17 +40,17 @@ def createHSVmatrix(mapHeight,mapWidth):
 
 def simpleShading(mapa,mapHeight,mapWidth,distance):
     minimum = np.min(mapa)  # Minimum wysokości potrzebne do normalizacji
-    maximum = np.max(mapa)# Maximum wyskokości potrzebne do normalizacji
+    maximum = np.max(mapa) - minimum# Maximum wyskokości potrzebne do normalizacji
     mapaHSV = createHSVmatrix(mapHeight, mapWidth)  # Macierz, która jest uzupełniana kolorami HSV na podstawie obliczeń
     for i in range(mapHeight):
         for j in range(mapWidth):
             # Obliczanie koloru między zielonym (120 - hue) a czerwonym (0)
-            mapaHSV[i][j][0] = (1 - ((mapa[i][j] - minimum) / (maximum-minimum))) * 120
+            mapaHSV[i][j][0] = (1 - ((mapa[i][j] - minimum) / maximum)) * 120
             if j == 0:
                 div = mapa[i][j] - mapa[i][j+1] # Różnica między wysokością punktu a jego prawym sąsiadem
             else:
                 div = mapa[i][j] - mapa[i][j-1] # Różnica między wysokością punktu a jego lewym sąsiadem
-            div = div / minimum
+            div = div*7 / maximum
             if div > 0:
                 mapaHSV[i][j][1] -= abs(div)
             else:
@@ -117,8 +117,8 @@ def vectorShading(mapa, mapHeight, mapWidth, distance):
 
 if __name__ == '__main__':
     mapa, mapHeight, mapWidth, distance = loadMapPoints("big.dem")
-    # mapaSimple = simpleShading(mapa,mapHeight,mapWidth,distance)
-    # drawMap(mapaSimple,"simpleMap.pdf")
-    mapaVector = vectorShading(mapa, mapHeight, mapWidth, distance)
-    drawMap(mapaVector,"vectorMap.pdf")
+    mapaSimple = simpleShading(mapa,mapHeight,mapWidth,distance)
+    drawMap(mapaSimple,"simpleMap.pdf")
+    # mapaVector = vectorShading(mapa, mapHeight, mapWidth, distance)
+    # drawMap(mapaVector,"vectorMap.pdf")
     plt.close()

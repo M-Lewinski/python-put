@@ -11,7 +11,7 @@ import math as m
 from matplotlib import colors
 
 # Liczba próbek w gradiencie
-samples = 16
+samples = 1024
 # Lista punktów tworząca odcinki na sześcianie
 rgbBw = [[0,0,0],[1,1,1]]
 rgbGbr = [[0,1,0],[0,0,1],[1,0,0]]
@@ -71,6 +71,8 @@ def plot_color_gradients(gradients, names):
         img = np.zeros((2, samples, 3))
         for i, v in enumerate(np.linspace(0, 1, samples)):
             img[:, i] = gradient(v)
+        # wizualizacja z interpolacją
+        # im = ax.imshow(img, aspect='auto')
         # Interpolacja została wyłączona, żeby lepiej zwizualizować zmiany w liczbie próbek
         im = ax.imshow(img, aspect='auto',interpolation='none')
         im.set_extent([0, 1, 0, 1])
@@ -80,7 +82,7 @@ def plot_color_gradients(gradients, names):
         x_text = pos[0] - 0.25
         y_text = pos[1] + pos[3]/2.
         fig.text(x_text, y_text, name, va='center', ha='left', fontsize=10)
-    fig.savefig('my-gradients16.pdf')
+    fig.savefig('my-gradients1024.pdf')
     plt.close()
 
 # Funkcja konwertuje z hsv do rgb
