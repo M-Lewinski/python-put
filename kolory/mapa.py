@@ -119,6 +119,6 @@ if __name__ == '__main__':
     mapa, mapHeight, mapWidth, distance = loadMapPoints("big.dem")
     mapaSimple = simpleShading(mapa,mapHeight,mapWidth,distance)
     drawMap(mapaSimple,"simpleMap.pdf")
-    # mapaVector = vectorShading(mapa, mapHeight, mapWidth, distance)
-    # drawMap(mapaVector,"vectorMap.pdf")
+    mapaVector = vectorShading(mapa, mapHeight, mapWidth, distance)
+    drawMap(mapaVector,"vectorMap.pdf")
     plt.close()
