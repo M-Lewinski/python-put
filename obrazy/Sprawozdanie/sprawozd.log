@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.10.23)  8 NOV 2016 23:19
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.10.23)  8 NOV 2016 23:20
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -578,22 +578,22 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 (./_ustawienia.tex) (./sprawozd.aux)
 \openout1 = `sprawozd.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for OT4/cmr/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for OT4/cmr/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: hyperref package is loaded.
 Package caption Info: End \AtBeginDocument code.
@@ -627,7 +627,7 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 \AtBeginShipoutBox=\box27
-Package hyperref Info: Link coloring OFF on input line 12.
+Package hyperref Info: Link coloring OFF on input line 15.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
@@ -637,9 +637,9 @@ Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
 \c@section@level=\count106
 )
-LaTeX Info: Redefining \ref on input line 12.
-LaTeX Info: Redefining \pageref on input line 12.
-LaTeX Info: Redefining \nameref on input line 12.
+LaTeX Info: Redefining \ref on input line 15.
+LaTeX Info: Redefining \pageref on input line 15.
+LaTeX Info: Redefining \nameref on input line 15.
 
 (./sprawozd.out) (./sprawozd.out)
 \@outlinefile=\write3
@@ -672,86 +672,49 @@ LaTeX Font Info:    External font `plex10' loaded for size
  [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}])
-<pics/my-gradients16.pdf, id=25, 401.5pt x 301.125pt>
-File: pics/my-gradients16.pdf Graphic file (type pdf)
+<pics/samoloty.pdf, id=21, 578.16pt x 433.62pt>
+File: pics/samoloty.pdf Graphic file (type pdf)
+ <use pics/samoloty.pdf>
+Package pdftex.def Info: pics/samoloty.pdf used on input line 24.
+(pdftex.def)             Requested size: 401.9055pt x 301.42789pt.
 
-<use pics/my-gradients16.pdf>
-Package pdftex.def Info: pics/my-gradients16.pdf used on input line 22.
-(pdftex.def)             Requested size: 200.95274pt x 150.71834pt.
+[2 <./pics/samoloty.pdf>] (./sprawozd.bbl
+LaTeX Font Info:    Try loading font information for OT4+cmtt on input line 7.
 
-<pics/my-gradients1024.pdf, id=26, 401.5pt x 301.125pt>
-File: pics/my-gradients1024.pdf Graphic file (type pdf)
-
-<use pics/my-gradients1024.pdf>
-Package pdftex.def Info: pics/my-gradients1024.pdf used on input line 27.
-(pdftex.def)             Requested size: 200.95274pt x 150.71834pt.
-
-Overfull \hbox (2.2222pt too wide) in paragraph at lines 20--30
-[]$[]$ $[]$ 
- []
-
-[2 <./pics/my-gradients16.pdf> <./pics/my-gradients1024.pdf
-
-pdfTeX warning: pdflatex (file ./pics/my-gradients1024.pdf): PDF inclusion: mul
-tiple pdfs with page group included in a single page
->] <pics/simpleMap.pdf, id=128, 578.16pt x 433.62pt>
-File: pics/simpleMap.pdf Graphic file (type pdf)
- <use pics/simpleMap.pdf>
-Package pdftex.def Info: pics/simpleMap.pdf used on input line 38.
-(pdftex.def)             Requested size: 200.95274pt x 150.71063pt.
-
-<pics/vectorMap.pdf, id=129, 578.16pt x 433.62pt>
-File: pics/vectorMap.pdf Graphic file (type pdf)
- <use pics/vectorMap.pdf>
-Package pdftex.def Info: pics/vectorMap.pdf used on input line 41.
-(pdftex.def)             Requested size: 200.95274pt x 150.71063pt.
-
-Overfull \hbox (2.2222pt too wide) in paragraph at lines 37--43
-[]$[]$ $[]$ 
- []
-
-(./sprawozd.bbl
-LaTeX Font Info:    Try loading font information for OT4+cmtt on input line 6.
- (/usr/share/texlive/texmf-dist/tex/latex/polski/ot4cmtt.fd
+(/usr/share/texlive/texmf-dist/tex/latex/polski/ot4cmtt.fd
 File: ot4cmtt.fd 2008/02/24 v1.2.1 Font defs for fonts PL (MW)
 ))
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 51.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 41.
+ [3]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 41.
 
-[3 <./pics/simpleMap.pdf> <./pics/vectorMap.pdf
-
-pdfTeX warning: pdflatex (file ./pics/vectorMap.pdf): PDF inclusion: multiple p
-dfs with page group included in a single page
->]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 51.
- (./sprawozd.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 51.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 51.
+(./sprawozd.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 41.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 41.
 Package rerunfilecheck Info: File `sprawozd.out' has not changed.
-(rerunfilecheck)             Checksum: 6480FCF3CB4C0AA9BC6F11B673C9C0E0;133.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 51.
+(rerunfilecheck)             Checksum: C9DCD379EAE789221803F401CE1D3CC5;95.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 41.
  ) 
 Here is how much of TeX's memory you used:
- 6955 strings out of 493029
- 103678 string characters out of 6136233
+ 6945 strings out of 493029
+ 103277 string characters out of 6136233
  181762 words of memory out of 5000000
- 10388 multiletter control sequences out of 15000+600000
- 10105 words of font info for 30 fonts, out of 8000000 for 9000
+ 10375 multiletter control sequences out of 15000+600000
+ 10641 words of font info for 31 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 42i,8n,40p,880b,432s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 42i,6n,40p,382b,411s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/pl/pltt.enc}{/usr/share/texliv
-e/texmf-dist/fonts/enc/dvips/pl/plms.enc}{/usr/share/texlive/texmf-dist/fonts/e
-nc/dvips/pl/plmi.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/pl/plrm.enc
-}</usr/share/texlive/texmf-dist/fonts/type1/public/pl/plbx10.pfb></usr/share/te
-xlive/texmf-dist/fonts/type1/public/pl/plbx12.pfb></usr/share/texlive/texmf-dis
-t/fonts/type1/public/pl/plmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
-ublic/pl/plr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/pl/plr12.p
-fb></usr/share/texlive/texmf-dist/fonts/type1/public/pl/plr8.pfb></usr/share/te
-xlive/texmf-dist/fonts/type1/public/pl/plsy10.pfb></usr/share/texlive/texmf-dis
-t/fonts/type1/public/pl/pltt10.pfb>
-Output written on sprawozd.pdf (3 pages, 974714 bytes).
+e/texmf-dist/fonts/enc/dvips/pl/plit.enc}{/usr/share/texlive/texmf-dist/fonts/e
+nc/dvips/pl/plrm.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/pl/plbx1
+0.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/pl/plbx12.pfb></usr/sha
+re/texlive/texmf-dist/fonts/type1/public/pl/plr10.pfb></usr/share/texlive/texmf
+-dist/fonts/type1/public/pl/plr12.pfb></usr/share/texlive/texmf-dist/fonts/type
+1/public/pl/plr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/pl/plti1
+0.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/pl/pltt10.pfb>
+Output written on sprawozd.pdf (3 pages, 76104 bytes).
 PDF statistics:
- 202 PDF objects out of 1000 (max. 8388607)
- 105 compressed objects within 2 object streams
- 11 named destinations out of 1000 (max. 500000)
- 45 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 98 PDF objects out of 1000 (max. 8388607)
+ 78 compressed objects within 1 object stream
+ 16 named destinations out of 1000 (max. 500000)
+ 22 words of extra memory for PDF output out of 10000 (max. 10000000)
 

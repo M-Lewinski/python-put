@@ -1,0 +1,21 @@
+\begin{thebibliography}{1}
+
+\bibitem{imread}
+Scikit-Image.
+\newblock Imread -- skimage.
+\newblock
+  \url{http://scikit-image.org/docs/dev/api/skimage.data.html#skimage.data.imread}.
+
+\bibitem{kontrast}
+Scikit-Image.
+\newblock Contrast stretching -- skimage.
+\newblock
+  \url{http://scikit-image.org/docs/dev/auto_examples/plot_equalize.html}.
+
+\bibitem{kontury}
+Scikit-Image.
+\newblock Contour finding -- skimage.
+\newblock
+  \url{http://scikit-image.org/docs/dev/auto_examples/plot_contours.html}.
+
+\end{thebibliography}

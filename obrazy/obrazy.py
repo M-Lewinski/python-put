@@ -2,10 +2,11 @@ from skimage import filters,data,color,measure,exposure
 from matplotlib import pyplot as plt
 import numpy as np
 
+#Funkcja wczytuję listę obrazów
 def loadImages(fileList):
     imageList = []
     for img in fileList:
-        imageList.append(data.imread(img))
+        imageList.append(data.imread(img)) #wczytywanie obrazu
     return imageList
 
 def findEdges1(image):
@@ -19,7 +20,6 @@ def findEdges1(image):
         for j in range(len(image[i])):
             blackWhite[i][j] =1- image[i][j][2]
             image[i][j] = [0,0,0]
-    # print(len(image[0]))
     contours = measure.find_contours(blackWhite,0.3)
     return  image,contours
 
@@ -28,7 +28,7 @@ def drawPlotsBlack(imageList):
     i = 0
     for img in imageList:
         plt.subplot(231+i) #tworznie kolejnych subplotów
-        frame = plt.gca() # Frame do usuniecia osi
+        frame = plt.gca() #Frame do usuniecia osi
         frame.axes.get_xaxis().set_visible(False) #Usuniecie osix
         frame.axes.get_yaxis().set_visible(False) #Usuniecie osiy
         image, contours = findEdges1(img) #znajdywanie krawedzi
@@ -36,9 +36,9 @@ def drawPlotsBlack(imageList):
             plt.plot(contours[:,1],contours[:,0],linewidth=0.8,color="w") #Rysowanie konturu na obrazie
         plt.imshow(image)
         i +=1 #kolejny obraz
-    plt.tight_layout()
+    plt.tight_layout() #Aby obrazy znajdowały się obok siebie
     plt.show()
-    fig.savefig("samoloty.pdf")
+    fig.savefig("samoloty.pdf",facecolor="black")
     plt.close()
 
 if __name__ == '__main__':
